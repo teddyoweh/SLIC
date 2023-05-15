@@ -1,8 +1,5 @@
 # SLIC - (Swift Low-latency Intercommunication)
-SLIC (Swift Low-latency Intercommunication) is a Python library that provides a simple and efficient way to perform intercommunication between clients and servers. It offers functionalities for creating resources, handling client requests, rate limiting, and managing network traffic. This README documentation provides an overview of the SLIC library, its features, and instructions for getting started.
-
-
- 
+SLIC (Swift Low-latency Intercommunication) simplifies client-server communication using tcp / p2p protocols while focusing on latency reduction through low-latency intercommunication techniques. By optimizing network protocols, minimizing data processing overhead, and utilizing efficient data transmission strategies, SLIC ensures faster response times, reduced communication delays, and enhanced overall performance in latency-sensitive applications. Additionally, SLIC streamlines Python applications' client-server communication with optimized algorithms for data serialization and deserialization, reducing processing overhead and improving efficiency, while offering built-in capabilities like rate limiting and network traffic management for enhanced network efficiency and seamless data exchange.
 
 ## Table of Contents
 - Introduction
