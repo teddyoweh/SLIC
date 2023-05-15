@@ -66,10 +66,10 @@ For more detailed information on the SLIC library and its usage, refer to the Us
 ## Features
 SLIC provides the following key features:
 
-Resource Creation: Create and manage resources on the server for handling specific client requests.
-Request Handling: Handle incoming client requests and execute the associated resource logic.
-Upload Resources: Enable clients to upload files or data to the server.
-Rate Limiting: Apply rate limits to control the number of requests from a client within a given time frame.
+- Resource Creation: Create and manage resources on the server for handling specific client requests.
+- Request Handling: Handle incoming client requests and execute the associated resource logic.
+- Upload Resources: Enable clients to upload files or data to the server.
+- Rate Limiting: Apply rate limits to control the number of requests from a client within a given time frame.
 Network Traffic Management: Track and manage client connections and their request counts.
 
 ## Usage
@@ -124,10 +124,10 @@ server.start('localhost', 9999)
 
 client.py
 ```py
-from slic import SlicClient
+from slic import Slic
 
 # Create a SLIC client instance
-client = SlicClient()
+client = Slic()
 
 # Connect to the SLIC server
 client.connect('localhost', 9999)
