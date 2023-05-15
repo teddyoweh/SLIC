@@ -3,122 +3,50 @@ import threading
 from decorators import Logger
 import ast
 from util import Util
-class HashMap():
-    hashtable:dict[str:object]
-
-    def __init__(self):
-        self.hashtable = {}
-    def add(self,key:str,value:object):
-        self.hashtable[key] = value
-    def get(self,key:str):
-        return self.hashtable[key]
-    def remove(self,key:str):
-        del self.hashtable[key]
-    def update(self,key:str,value:object):
-        self.hashtable[key] = value
-    def clear(self):
-        self.hashtable.clear()
-    def contains(self,key:str):
-        return key in self.hashtable
-    @property
-    def size(self):
-        return len(self.hashtable)
-    @property
-    def keys(self):
-        return self.hashtable.keys()
-        
-class NetworkTrafficMap(object):
-    def __init__(self):
-        self.all = HashMap()
-        self.current = HashMap()
-        
-
-    @property
-    def requests_no_all(self):
-        return self.all.size
-    @property
-    def requests_no_current(self):
-        return self.current.size
-    def add(self, addr,conn):
-        ip = Util.ipkey(addr)
-
-        data = {
-            'key':ip,
-            'ip':addr[0],
-            'port':addr[1],
-            'requests':0,
-            'addr':addr,
-            'conn':conn,
-            'date':Util.timestamp(),
-
-        }
-        self.all.add(ip, data)
-        self.current.add(ip, data)
-    def remove(self,addr):
-        ip = Util.ipkey(addr)
-        self.current.remove(ip)
-    def update_all_request_no(self,addr):
-        ip = Util.ipkey(addr)
-        self.all.get(ip)['requests'] += 1
-    def update_current_request_no(self,addr):
-        ip = Util.ipkey(addr)
-        self.current.get(ip)['requests'] += 1
-    
-class Rate(object):
-
-    RATE = {
-        'type':'',
-        'rate':'',
-
-    }
-    def __init__(self):
-        pass
-    def set_hourly_rate(self,rate):
-        self.RATE['type'] = 'hourly'
-        self.RATE['rate'] = rate
-    def set_daily_rate(self,rate):
-        self.RATE['type'] = 'daily'
-        self.RATE['rate'] = rate
-    def set_weekly_rate(self,rate):
-        self.RATE['type'] = 'weekly'
-        self.RATE['rate'] = rate
-    def set_monthly_rate(self,rate):
-        self.RATE['type'] = 'monthly'
-        self.RATE['rate'] = rate
-    def set_yearly_rate(self,rate):
-        self.RATE['type'] = 'yearly'
-        self.RATE['rate'] = rate
-    def get_rate(self):
-        return self.RATE
-
-    
-    
+from HashMap import HashMap
+from NetworkTrafficMap import NetworkTrafficMap
+from Rate import Rate    
 class RateLimiter(object):
-    def __init__(self,Network:NetworkTrafficMap,rate:Rate):
+    def __init__(self, Network: NetworkTrafficMap, rate: Rate):
         self.network = Network
-    def is_allowed(self,addr):
+        self.rate = rate
+
+    def is_allowed(self, addr):
         ip = Util.ipkey(addr)
-        if(self.network.all.contains(ip)):
-            if(self.network.all.get(ip)['requests'] >= 100):
+        if self.network.all.contains(ip):
+            if self.network.all.get(ip)['requests'] >= 100:
                 return False
             else:
-                return True
+                return self.validate_rate(ip)
         else:
             return True
-    def is_allowed_current(self,addr):
+
+    def is_allowed_current(self, addr):
         ip = Util.ipkey(addr)
-        if(self.network.current.contains(ip)):
-            if(self.network.current.get(ip)['requests'] >= 100):
+        if self.network.current.contains(ip):
+            if self.network.current.get(ip)['requests'] >= 100:
                 return False
             else:
-                return True
+                return self.validate_rate(ip)
         else:
             return True
-    def update(self,addr):
-        ip = Util.ipkey(addr)
-        self.network.update_all_request_no(ip)
-        self.network.update_current_request_no(ip)
-    
+
+    def validate_rate(self, ip):
+        rate_type = self.rate.get_rate()['type']
+        rate_value = self.rate.get_rate()['rate']
+        if rate_type == 'hourly':
+            return self.validate_hourly_rate(ip, rate_value)
+        elif rate_type == 'daily':
+            return self.validate_daily_rate(ip, rate_value)
+        elif rate_type == 'weekly':
+            return self.validate_weekly_rate(ip, rate_value)
+        elif rate_type == 'monthly':
+            return self.validate_monthly_rate(ip, rate_value)
+        elif rate_type == 'yearly':
+            return self.validate_yearly_rate(ip, rate_value)
+        else:
+            return True
+
          
 
 class Slic(socket.socket):
