@@ -6,7 +6,7 @@ Additionally, SLIC streamlines Python applications' client-server communication 
 
 ## Table of Contents
 - [Introduction](./#Introduction)
-- [Quick Start](./#Quick-Start)
+- [Quick Start](./#quick-start)
 - [Features](./#Features)
 - [Usage](./#Usage)
 - [Contributing](./#Contributing)
