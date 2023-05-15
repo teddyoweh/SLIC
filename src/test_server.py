@@ -1,11 +1,25 @@
 from Slic import Slic
 import pickle
 from util import Util
+from beardb import Beardb,Bucket
 server = Slic()
+project = Beardb('teddyoweh.net')
+project.load_database('app')
+views = Bucket(project=project, bucket_name='views')
 def add(payload):
     print(payload['a']+1)
     return {'answer':payload['a']+1}
   
+ 
+
+
+
+def add_views(data):
+ 
+    views.insert(data)
+
+def get_views(payload):
+   return views.fetchData()
 
 def login(payload):
     print(payload['username'])
@@ -13,6 +27,8 @@ def login(payload):
     return {'login':True}
 name = 'teddy'
  
+ 
+   
 def get_server_variable(payload):
     var = payload["variable_name"]
     print(payload)
@@ -37,10 +53,12 @@ def get_server_variable(payload):
 
 server.create_resource(':test',add)
 server.create_resource(':login',login)
+server.create_resource(':add_views',add_views)
+server.create_resource(':get_views',get_views)
 server.create_resource(":get_server_variable", get_server_variable)
 server.create_upload_resource(':pyt','test')
-print(globals())
-server.start('localhost',9951)
+ 
+server.start('localhost',9999)
 
 
 

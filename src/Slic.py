@@ -64,8 +64,63 @@ class NetworkTrafficMap(object):
         ip = Util.ipkey(addr)
         self.current.get(ip)['requests'] += 1
     
+class Rate(object):
+
+    RATE = {
+        'type':'',
+        'rate':'',
+
+    }
+    def __init__(self):
+        pass
+    def set_hourly_rate(self,rate):
+        self.RATE['type'] = 'hourly'
+        self.RATE['rate'] = rate
+    def set_daily_rate(self,rate):
+        self.RATE['type'] = 'daily'
+        self.RATE['rate'] = rate
+    def set_weekly_rate(self,rate):
+        self.RATE['type'] = 'weekly'
+        self.RATE['rate'] = rate
+    def set_monthly_rate(self,rate):
+        self.RATE['type'] = 'monthly'
+        self.RATE['rate'] = rate
+    def set_yearly_rate(self,rate):
+        self.RATE['type'] = 'yearly'
+        self.RATE['rate'] = rate
+    def get_rate(self):
+        return self.RATE
+
     
     
+class RateLimiter(object):
+    def __init__(self,Network:NetworkTrafficMap,rate:Rate):
+        self.network = Network
+    def is_allowed(self,addr):
+        ip = Util.ipkey(addr)
+        if(self.network.all.contains(ip)):
+            if(self.network.all.get(ip)['requests'] >= 100):
+                return False
+            else:
+                return True
+        else:
+            return True
+    def is_allowed_current(self,addr):
+        ip = Util.ipkey(addr)
+        if(self.network.current.contains(ip)):
+            if(self.network.current.get(ip)['requests'] >= 100):
+                return False
+            else:
+                return True
+        else:
+            return True
+    def update(self,addr):
+        ip = Util.ipkey(addr)
+        self.network.update_all_request_no(ip)
+        self.network.update_current_request_no(ip)
+    
+         
+
 class Slic(socket.socket):
     BUFFER_SIZE = 1024
     logger = Logger("server_logs.log")
@@ -75,6 +130,8 @@ class Slic(socket.socket):
         #self.logger = Logger("logs/server_logs.log")
         self.resources = HashMap()
         self.network_traffic  = NetworkTrafficMap()
+        self.rate_limiter = RateLimiter(self.network_traffic)
+        
     @logger.decorator   
     def start(self,host:str,port:int):
         self.bind((host,port))
