@@ -5,12 +5,12 @@ SLIC (Swift Low-latency Intercommunication) simplifies client-server communicati
 Additionally, SLIC streamlines Python applications' client-server communication with optimized algorithms for data serialization and deserialization, reducing processing overhead and improving efficiency, while offering built-in capabilities like rate limiting and network traffic management for enhanced network efficiency and seamless data exchange.
 
 ## Table of Contents
-- [Introduction]("#Introduction")
-- [Quick Start]('#Quick Start')
-- Features
-- Usage
-- Contributing
-- License
+- [Introduction](./#Introduction)
+- [Quick Start](./#Quick-Start)
+- [Features](./#Features)
+- [Usage](./#Usage)
+- [Contributing](./#Contributing)
+- [License](./#License)
 
 
 ## Introduction
