@@ -1,0 +1,2 @@
+[console_scripts]
+SLIC = reader.__main__:main

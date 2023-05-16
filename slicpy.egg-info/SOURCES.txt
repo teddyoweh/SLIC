@@ -1,0 +1,9 @@
+README.md
+setup.cfg
+setup.py
+slicpy.egg-info/PKG-INFO
+slicpy.egg-info/SOURCES.txt
+slicpy.egg-info/dependency_links.txt
+slicpy.egg-info/entry_points.txt
+slicpy.egg-info/requires.txt
+slicpy.egg-info/top_level.txt
