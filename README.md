@@ -1,16 +1,12 @@
 # SLIC - (Swift Low-latency Intercommunication)
-<<<<<<< HEAD
-SLIC (Swift Low-latency Intercommunication) simplifies client-server communication using tcp / p2p protocols while focusing on latency reduction through low-latency intercommunication techniques. By optimizing network protocols, minimizing data processing overhead, and utilizing efficient data transmission strategies, SLIC ensures faster response times, reduced communication delays, and enhanced overall performance in latency-sensitive applications. 
-<<<<<<< Updated upstream
 
-=======
+SLIC (Swift Low-latency Intercommunication) simplifies client-server communication using tcp / p2p protocols while focusing on latency reduction through low-latency intercommunication techniques. By optimizing network protocols, minimizing data processing overhead, and utilizing efficient data transmission strategies, SLIC ensures faster response times, reduced communication delays, and enhanced overall performance in latency-sensitive applications. 
+
+
+
 
 SLIC (Swift Low-latency Intercommunication) simplifies client-server communication using tcp / p2p protocols while focusing on latency reduction through low-latency intercommunication techniques. By optimizing network protocols, minimizing data processing overhead, and utilizing efficient data transmission strategies, SLIC ensures faster response times, reduced communication delays, and enhanced overall performance in latency-sensitive applications.
->
->>>>>>> 4def4fb590ad00d1094478e514c6290c00e335fb
-=======
--
->>>>>>> Stashed changes
+
 Additionally, SLIC streamlines Python applications' client-server communication with optimized algorithms for data serialization and deserialization, reducing processing overhead and improving efficiency, while offering built-in capabilities like rate limiting and network traffic management for enhanced network efficiency and seamless data exchange.
 
 ## Table of Contents
@@ -178,10 +174,10 @@ server.start('localhost', 9999)
 ### Example Client
 To make requests to the SLIC server, you can use the SLIC client:
 ```py
-from slic import SlicClient
+from slic import Slic
 
 # Create a SLIC client instance
-client = SlicClient()
+client = Slic()
 
 # Connect to the SLIC server
 client.connect('localhost', 9999)
