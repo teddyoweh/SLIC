@@ -23,7 +23,7 @@ $ pip install slicpy
 ```
 2. Import the necessary modules and classes:
 ```py
-from slic import Slic, RateLimiter, Rate, NetworkTrafficMap
+from slicpy import Slic, RateLimiter, Rate, NetworkTrafficMap
 ```
 
 3. Create a server instance and define your resources:
@@ -101,7 +101,7 @@ SLIC allows clients to upload files or data to the server by creating upload res
 
 server.py
 ```py
-from slic import Slic
+from slicpy import Slic
 
 # Create a SLIC server instance
 server = Slic()
@@ -122,7 +122,7 @@ server.start('localhost', 9999)
 
 client.py
 ```py
-from slic import Slic
+from slicpy import Slic
 
 # Create a SLIC client instance
 client = Slic()
@@ -167,7 +167,7 @@ server.start('localhost', 9999)
 ### Example Client
 To make requests to the SLIC server, you can use the SLIC client:
 ```py
-from slic import Slic
+from slicpy import Slic
 
 # Create a SLIC client instance
 client = Slic()
