@@ -1,11 +1,11 @@
 import socket
 import threading
-from decorators import Logger
+from .decorators import Logger
 import ast
-from util import Util
-from HashMap import HashMap
-from NetworkTrafficMap import NetworkTrafficMap
-from Rate import Rate    
+from .util import Util
+from .HashMap import HashMap
+from .NetworkTrafficMap import NetworkTrafficMap
+from .Rate import Rate    
 class RateLimiter(object):
     def __init__(self, Network: NetworkTrafficMap, rate: Rate):
         self.network = Network
@@ -58,7 +58,7 @@ class Slic(socket.socket):
         #self.logger = Logger("logs/server_logs.log")
         self.resources = HashMap()
         self.network_traffic  = NetworkTrafficMap()
-        self.rate_limiter = RateLimiter(self.network_traffic)
+        #self.rate_limiter = RateLimiter(self.network_traffic)
         
     @logger.decorator   
     def start(self,host:str,port:int):

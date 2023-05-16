@@ -1,6 +1,16 @@
 README.md
 setup.cfg
 setup.py
+slicpy/Console.py
+slicpy/HashMap.py
+slicpy/NetworkTrafficMap.py
+slicpy/Rate.py
+slicpy/Slic.py
+slicpy/__init__.py
+slicpy/decorators.py
+slicpy/test.py
+slicpy/test_server.py
+slicpy/util.py
 slicpy.egg-info/PKG-INFO
 slicpy.egg-info/SOURCES.txt
 slicpy.egg-info/dependency_links.txt

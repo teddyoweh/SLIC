@@ -14,8 +14,8 @@ README = (HERE / "README.md").read_text()
  
 setup(
     name="slicpy",
-    version="0.0.3",
-    description="Swift Low-latency Intercommunication)",
+    version="0.0.9",
+    description="Swift Low-latency Intercommunication",
     long_description=README,
     long_description_content_type="text/markdown",
     url="https://github.com/teddyoweh/SLIC",

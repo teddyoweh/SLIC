@@ -5,16 +5,18 @@ import inspect
 class Logger:
     def __init__(self, log_path):
         self.log_path = '@logs/'+ log_path
-        self.create_log_file()
+        
         try:
             os.mkdir('@logs')
         except:
             pass
+        self.create_log_file()
 
     def create_log_file(self):
         if not os.path.exists(self.log_path):
-            with open(self.log_path, 'w') as f:
-                f.write("")
+
+            open(self.log_path, 'w').write("")
+       
 
     def log(self, message):
         with open(self.log_path, 'a') as f:

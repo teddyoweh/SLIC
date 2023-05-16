@@ -1,5 +1,5 @@
-from util import Util
-from HashMap import HashMap
+from .util import Util
+from .HashMap import HashMap
 class NetworkTrafficMap(object):
     def __init__(self):
         self.all = HashMap()

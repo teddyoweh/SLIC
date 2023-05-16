@@ -1,8 +1,6 @@
 # SLIC - (Swift Low-latency Intercommunication)
 
-SLIC (Swift Low-latency Intercommunication) simplifies client-server communication using tcp / p2p protocols while focusing on latency reduction through low-latency intercommunication techniques. By optimizing network protocols, minimizing data processing overhead, and utilizing efficient data transmission strategies, SLIC ensures faster response times, reduced communication delays, and enhanced overall performance in latency-sensitive applications.
-
-Additionally, SLIC streamlines Python applications' client-server communication with optimized algorithms for data serialization and deserialization, reducing processing overhead and improving efficiency, while offering built-in capabilities like rate limiting and network traffic management for enhanced network efficiency and seamless data exchange.
+SLIC (Swift Low-latency Intercommunication) simplifies client-server communication using tcp / p2p protocols while focusing on latency reduction through low-latency intercommunication techniques. By optimizing network protocols, minimizing data processing overhead, with optimized algorithms for data serialization and deserialization, reducing processing overhead and improving efficiency, while offering built-in capabilities like rate limiting and network traffic management for enhanced network efficiency and seamless data exchange to ensure faster response times, reduced communication delays, and enhanced overall performance in latency-sensitive applications.
 
 ## Table of Contents
 - [Introduction](./#Introduction)
@@ -21,7 +19,7 @@ To quickly get started with SLIC, follow these steps:
 
 1. Install SLIC library:
 ```sh
-$ pip install slic
+$ pip install slicpy
 ```
 2. Import the necessary modules and classes:
 ```py
