@@ -1,6 +1,6 @@
 Metadata-Version: 2.1
 Name: slicpy
-Version: 0.0.2
+Version: 0.0.3
 Summary: Swift Low-latency Intercommunication)
 Home-page: https://github.com/teddyoweh/SLIC
 Author: Teddy Oweh
@@ -11,11 +11,6 @@ Classifier: Programming Language :: Python :: 3.7
 Description-Content-Type: text/markdown
 
 # SLIC - (Swift Low-latency Intercommunication)
-
-SLIC (Swift Low-latency Intercommunication) simplifies client-server communication using tcp / p2p protocols while focusing on latency reduction through low-latency intercommunication techniques. By optimizing network protocols, minimizing data processing overhead, and utilizing efficient data transmission strategies, SLIC ensures faster response times, reduced communication delays, and enhanced overall performance in latency-sensitive applications. 
-
-
-
 
 SLIC (Swift Low-latency Intercommunication) simplifies client-server communication using tcp / p2p protocols while focusing on latency reduction through low-latency intercommunication techniques. By optimizing network protocols, minimizing data processing overhead, and utilizing efficient data transmission strategies, SLIC ensures faster response times, reduced communication delays, and enhanced overall performance in latency-sensitive applications.
 
