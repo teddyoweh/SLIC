@@ -7,8 +7,7 @@ SLIC (Swift Low-latency Intercommunication) simplifies client-server communicati
 - [Quick Start](./#quick-start)
 - [Features](./#Features)
 - [Usage](./#Usage)
-- [Contributing](./#Contributing)
-- [License](./#License)
+- [Examples](./#Examples)
 
 
 ## Introduction
@@ -182,3 +181,7 @@ print(response)  # {'answer': 11}
 # Close the client connection
 client.close()
 ```
+
+
+## Examples
+ Example Sources frontend/cleint and server code are located in [./examples](./examples)
