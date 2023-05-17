@@ -67,7 +67,7 @@ SLIC provides the following key features:
 - Request Handling: Handle incoming client requests and execute the associated resource logic.
 - Upload Resources: Enable clients to upload files or data to the server.
 - Rate Limiting: Apply rate limits to control the number of requests from a client within a given time frame.
-Network Traffic Management: Track and manage client connections and their request counts.
+- Network Traffic Management: Track and manage client connections and their request counts.
 
 ## Usage
 The SLIC library can be used to build client-server applications with ease. Below is a more detailed explanation of the library's usage and its main components.
