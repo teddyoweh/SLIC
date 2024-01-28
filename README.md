@@ -184,4 +184,4 @@ client.close()
 
 
 ## Examples
- Example Sources frontend/cleint and server code are located in [./examples](./examples)
+ Example Sources frontend/client and server code are located in [./examples](./examples)
